@@ -1,0 +1,105 @@
+<html>
+<head>
+<script>
+
+var organizations = [
+    {
+        name: 'sailors for justice',
+        grants: [100000,55,333333]
+    },
+    {
+        name: 'ptarmagins for peace',
+        grants: [33,22,11,1.6,.83333333,.000003,1.1]
+    },
+    {
+        name: 'big spenders spending money',
+        grants: [10000000000,2000000000,300000000]
+    }
+];
+
+//Returns the name of all organizations that have any grants above a certain amount
+function orgs_with_grants_over_amount(organizations, amount) {
+    var array_of_organization_names = [];
+    
+    //return true if a certain grant amount is bigger than
+    function grant_is_big(grant, amount) {
+        if (grant > amount) {
+            return true;
+        }
+        return false;
+    }
+    
+    //return true if organization has a big grant
+    function has_big_grants(organization) {
+        
+    }
+    array_of_organization_names = filter(has_big_grants, organizations);
+    return array_of_organization_names;
+}
+//should return ["sailors for justice", "big spenders for spending money"]
+console.log(orgs_with_grants_over_amount(organizations, 100));
+
+//create function to return an array of all grant amounts below a certain amount
+function grants_below_amount(organizations, amount) {
+    //do codes
+}
+
+//Use these chapter 7 concepts
+//Example functions for any, every, flatten, and filter
+
+function any(test, array) {
+  for (var i = 0; i < array.length; i++) {
+    var found = test(array[i]);
+    if (found)
+        return found;
+  }
+  return false;
+}
+
+function every(test, array) {
+  for (var i = 0; i < array.length; i++) {
+    var found = test(array[i]);
+    if (!found)
+      return found;
+  }
+  return true;
+}
+
+function flatten(arrays) {
+    var result = [];
+  forEach(arrays, function (array) {
+    forEach(array, function (element){result.push(element);});
+  });
+  return result;
+}
+
+var big_nasty_thing = [[1892,'cheese',{whoa:'wow'}],[11,11,111,1,1,1],['hi','hi']];
+console.log(flatten(big_nasty_thing));
+
+function filter(test, array) {
+  var result = [];
+  forEach(array, function (element) {
+    if (test(element))
+      result.push(element);
+  });
+  return result;
+}    
+    
+//Utilities
+
+function forEach(array, action) {
+  try {
+    for (var i = 0; i < array.length; i++)
+      action(array[i]);
+  }
+  catch (exception) {
+    if (exception != Break)
+      throw exception;
+  }
+}
+
+</script>
+</head>
+<body>
+</body>
+</html>
